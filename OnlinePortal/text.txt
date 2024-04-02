@@ -1,0 +1,67 @@
+backgroundColor: '#ADD8E6'
+
+
+
+
+
+
+
+
+
+ React.useEffect(() => {
+   
+        navigation.setOptions({
+          title: 'Class Detail',
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {Alert.alert(
+          'Delete',
+          'you want to delete this course?',
+          [
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+            {text: 'OK', onPress: ()=>{deleteCourse({id,callback})}},
+          ],
+          { cancelable: false }
+        )}} style={{ marginRight: 10 }}>
+             <FontAwesome name="trash-o" size={24} color="black" />
+            </TouchableOpacity>
+          ),headerLeft:false
+        });
+        const unsubscribe = navigation.addListener('focus', async () => {
+    
+            enableBackButton()
+          // getEnrollCourses({ studentId });
+        });
+    
+        return unsubscribe;
+      }, [navigation]);
+
+
+
+
+
+
+
+
+      useFocusEffect(
+        React.useCallback(() => {
+            fetchEvent();
+            navigation.setOptions({
+                title: 'Events',
+                headerRight: () => (
+                    <View style={{ flexDirection: 'row' }}>
+                       {state.portal==="admin"?<TouchableOpacity
+                            onPress={() => { navigation.navigate("EventCreate") }} style={{ marginRight: 10 }}><MaterialIcons name="event" size={24} color="black" />
+                        </TouchableOpacity>:null}
+
+                    </View>
+
+                ),
+            });
+            return () => {
+
+                // Usel for cleanup functions
+
+            };
+        }, [])
+    );
