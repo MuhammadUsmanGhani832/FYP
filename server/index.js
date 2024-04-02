@@ -23,10 +23,7 @@ const classWorkRoute = require('./routes/classWorkRoute');
 const studentEmail = require('./routes/studentEmail');
 const attendence = require('./routes/attendenceRoutes');
 const event = require('./routes/eventRoute');
-
 const app = express();
-
-
 app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
@@ -41,15 +38,12 @@ app.use(event);
 mongoose.connect('mongodb+srv://Muhammad_Usman:Saimausman832@cluster0.prpq8gx.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB', err));
-
 app.get("/", requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 app.get("/check_email", (req, res) => {
   find({ email })
 });
-
-
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });

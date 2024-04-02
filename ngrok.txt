@@ -1,1 +1,0 @@
-ngrok http --domain=9bce1e67bb32-2980149167387609208.ngrok-free.app 3000
