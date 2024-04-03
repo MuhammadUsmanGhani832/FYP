@@ -5,37 +5,27 @@ import { Context as CourseContext } from '../../context/CourseContext';
 import { FlatList } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { Context as GetEnrollCoursesContext } from '../../context/GetEnrollCoursesContext';
-import ListForm from '../../components/ListForm'
+import ListForm from '../../components/ListForm';
 
-
-const AttendenceSubjectsList = ({navigation,route}) => {
-    const { myState, createCourse,fetchCourses ,enrollApi } = useContext(CourseContext);
+const AttendenceSubjectsList = ({ navigation, route }) => {
+    const { myState, createCourse, fetchCourses, enrollApi } = useContext(CourseContext);
     const { stateT, getEnrollCourses } = useContext(GetEnrollCoursesContext);
-  const email=route.params.id;
- useFocusEffect(
-        React.useCallback( () => {
-    
-            // enableBackButton();
-              fetchCourses();
-            getEnrollCourses({email});
-    
-          return () => {
-    
-            // disableBackButton();
-            // Useful for cleanup functions
-    
-          };
+    const email = route.params.id;
+    useFocusEffect(
+        React.useCallback(() => {
+            fetchCourses();
+            getEnrollCourses({ email });
         }, [])
-      );
-      console.log(stateT.get_courses)
+    );
+    console.log(stateT.get_courses)
     return (
         <View style={styles.container}>
             <FlatList data={stateT.get_courses}
                 keyExtractor={(item) => item._id}
                 renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity style={styles.studentList} onPress={() => {  navigation.navigate('Attendence', { id: item.courseId,email })  }}>
-                        <ListForm id={`${item.courseId}`}></ListForm>
+                        <TouchableOpacity style={styles.studentList} onPress={() => { navigation.navigate('Attendence', { id: item.courseId, email }) }}>
+                            <ListForm id={`${item.courseId}`}></ListForm>
                         </TouchableOpacity>
                     )
                 }}

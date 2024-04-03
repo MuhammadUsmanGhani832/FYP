@@ -7,27 +7,15 @@ import { TouchableOpacity } from 'react-native';
 import { Context as StudentContext } from '../../context/createStudentContext/StudentContext';
 
 const StudentListforResult = ({ navigation, route }) => {
-    const { studentState, addResult ,fetchResult,clearValue} = useContext(StudentContext);
+    const { studentState, addResult, fetchResult, clearValue } = useContext(StudentContext);
     const { stateT, getEnrollStudent } = useContext(GetEnrollCourses);
     const id = route.params.id;
     const courseId = id;
     useFocusEffect(
         React.useCallback(() => {
-
-
-
             getEnrollStudent({ courseId });
-
-            return () => {
-
-
-                // Useful for cleanup functions
-
-            };
         }, [])
     );
-
-
     return (
         <View style={{ flex: 1 }}>
             <FlatList
@@ -36,10 +24,10 @@ const StudentListforResult = ({ navigation, route }) => {
                 renderItem={({ item }) => {
                     return (
                         <TouchableOpacity
-                            onPress={async() => {
-                                await fetchResult({email:item.email,courseId:id})
+                            onPress={async () => {
+                                await fetchResult({ email: item.email, courseId: id })
                                 navigation.navigate("StudentResult", { id, email: item.email });
-                                
+
                             }}
                             style={{
                                 borderWidth: 0.5,

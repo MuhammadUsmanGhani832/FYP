@@ -51,14 +51,11 @@ import EventCreate from './src/screens/AdminScreens/EventCreate';
 function MyStack() {
   return (
     <Stack.Navigator
-
     >
-
       {/* <Stack.Screen name="LoadingScreen" component={LoadingScreen} options={{
         title: "create class work"}} /> */}
       <Stack.Screen name="LocalStorageCheck" component={LocalStorageCheck} options={{ headerShown: false }} />
       <Stack.Screen name="TabHome" component={TabHome}
-
         options={({ navigation }) => ({
           title: "University Portal",
           headerRight: () => (

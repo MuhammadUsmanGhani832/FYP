@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, {  useContext } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import { disableBackButton, resetBackButton, enableBackButton } from '../components/BackButtonHandler';
 import { Context as CourseContext } from '../context/CourseContext';
@@ -10,7 +10,7 @@ import { ActivityIndicator } from 'react-native';
 
 
 const EnrolledCoursesList = ({navigation,route}) => {
-    const { myState, createCourse,fetchCourses ,enrollApi } = useContext(CourseContext);
+    const { fetchCourses  } = useContext(CourseContext);
     const { stateT, getEnrollCourses } = useContext(GetEnrollCoursesContext);
   const email=route.params.id;
  useFocusEffect(

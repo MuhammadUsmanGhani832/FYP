@@ -36,7 +36,6 @@ const DetailScreenForClass = ({ navigation, route }) => {
         fetchClassWork({ courseId });
         setDescription("")
     }
-
     useFocusEffect(
         React.useCallback(() => {
             fetchClassWork({ courseId });
@@ -45,7 +44,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                 headerRight: () => (
                     <View style={{ flexDirection: 'row' }}>
                         <TouchableOpacity
-                            onPress={() => { navigation.navigate("ClassChat", { courseId }) }} style={{ marginRight: 10 }}><Ionicons name="ios-chatbubble-ellipses" size={24} color="black" />
+                            onPress={() => { navigation.navigate("ClassChat", { courseId }) }} style={{ marginRight: 10 }}><Ionicons name="chatbox-ellipses" size={24} color="black" />
                         </TouchableOpacity>
                         {state.portal === "teacher" ? <TouchableOpacity
                             onPress={() => toggleMenu()} style={{ marginRight: 10 }}>
@@ -58,8 +57,6 @@ const DetailScreenForClass = ({ navigation, route }) => {
             return () => {
                 removeFunctionChat()
                 closeMenu();
-                // Usel for cleanup functions
-
             };
         }, [])
     );
@@ -85,111 +82,111 @@ const DetailScreenForClass = ({ navigation, route }) => {
                         renderItem={({ item }) => {
                             return (
                                 <View>
-                                    {item.title==="Lecture"?<View style={{
-                                    borderRadius: 5,
-                                    backgroundColor: "red",
-                                    marginHorizontal: 10,
-                                    marginVertical: 10,
-                                }}>
-                                    <Text style={{
-                                        fontSize: 14,
-                                        backgroundColor: 'red',
-                                        borderTopLeftRadius: 5,
-                                        borderTopRightRadius: 5,
-                                        paddingHorizontal: 5,
-                                        color: '#800080',
-                                        borderBottomWidth: 0.3,
-                                        borderBottomColor: 'black'
-                                    }}>{item.title}    {item.dueDate}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 20
-                                    }}>{item.description}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 12
-                                    }}></Text>
-                                </View>:item.title==="Assignment"?<View style={{
-                                    borderRadius: 5,
-                                    backgroundColor: "lightblue",
-                                    marginHorizontal: 10,
-                                    marginVertical: 10,
-                                }}>
-                                    <Text style={{
-                                        fontSize: 14,
-                                        backgroundColor: 'lightblue',
-                                        borderTopLeftRadius: 5,
-                                        borderTopRightRadius: 5,
-                                        paddingHorizontal: 5,
-                                        color: '#800080',
-                                        borderBottomWidth: 0.3,
-                                        borderBottomColor: 'black'
-                                    }}>{item.title}    {item.dueDate}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 20
-                                    }}>{item.description}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 12
-                                    }}></Text>
-                                </View>:item.title==="Quiz"?<View style={{
-                                    borderRadius: 5,
-                                    backgroundColor: "lightyellow",
-                                    marginHorizontal: 10,
-                                    marginVertical: 10,
-                                }}>
-                                    <Text style={{
-                                        fontSize: 14,
-                                        backgroundColor: 'lightyellow',
-                                        borderTopLeftRadius: 5,
-                                        borderTopRightRadius: 5,
-                                        paddingHorizontal: 5,
-                                        color: '#800080',
-                                        borderBottomWidth: 0.3,
-                                        borderBottomColor: 'black'
-                                    }}>{item.title}    {item.dueDate}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 20
-                                    }}>{item.description}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 12
-                                    }}></Text>
-                                </View>:<View style={{
-                                    borderRadius: 5,
-                                    backgroundColor: "#d3d3d3",
-                                    marginHorizontal: 10,
-                                    marginVertical: 10,
-                                }}>
-                                    <Text style={{
-                                        fontSize: 14,
-                                        backgroundColor: '#d3d3d3',
-                                        borderTopLeftRadius: 5,
-                                        borderTopRightRadius: 5,
-                                        paddingHorizontal: 5,
-                                        color: '#800080',
-                                        borderBottomWidth: 0.3,
-                                        borderBottomColor: 'black'
-                                    }}>{item.title}    {item.dueDate}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 20
-                                    }}>{item.description}</Text>
-                                    <Text style={{
-                                        textAlign: 'left',
-                                        paddingHorizontal: 5,
-                                        fontSize: 12
-                                    }}></Text>
-                                </View>}
+                                    {item.title === "Lecture" ? <View style={{
+                                        borderRadius: 5,
+                                        backgroundColor: "#96C72F",
+                                        marginHorizontal: 10,
+                                        marginVertical: 10,
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 14,
+                                            backgroundColor: '#96C72F',
+                                            borderTopLeftRadius: 5,
+                                            borderTopRightRadius: 5,
+                                            paddingHorizontal: 5,
+                                            color: '#800080',
+                                            borderBottomWidth: 0.3,
+                                            borderBottomColor: 'black'
+                                        }}>{item.title}    {item.dueDate}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 20
+                                        }}>{item.description}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 12
+                                        }}></Text>
+                                    </View> : item.title === "Assignment" ? <View style={{
+                                        borderRadius: 5,
+                                        backgroundColor: "lightblue",
+                                        marginHorizontal: 10,
+                                        marginVertical: 10,
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 14,
+                                            backgroundColor: 'lightblue',
+                                            borderTopLeftRadius: 5,
+                                            borderTopRightRadius: 5,
+                                            paddingHorizontal: 5,
+                                            color: '#800080',
+                                            borderBottomWidth: 0.3,
+                                            borderBottomColor: 'black'
+                                        }}>{item.title}    {item.dueDate}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 20
+                                        }}>{item.description}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 12
+                                        }}></Text>
+                                    </View> : item.title === "Quiz" ? <View style={{
+                                        borderRadius: 5,
+                                        backgroundColor: "lightyellow",
+                                        marginHorizontal: 10,
+                                        marginVertical: 10,
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 14,
+                                            backgroundColor: 'lightyellow',
+                                            borderTopLeftRadius: 5,
+                                            borderTopRightRadius: 5,
+                                            paddingHorizontal: 5,
+                                            color: '#800080',
+                                            borderBottomWidth: 0.3,
+                                            borderBottomColor: 'black'
+                                        }}>{item.title}    {item.dueDate}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 20
+                                        }}>{item.description}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 12
+                                        }}></Text>
+                                    </View> : <View style={{
+                                        borderRadius: 5,
+                                        backgroundColor: "#d3d3d3",
+                                        marginHorizontal: 10,
+                                        marginVertical: 10,
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 14,
+                                            backgroundColor: '#d3d3d3',
+                                            borderTopLeftRadius: 5,
+                                            borderTopRightRadius: 5,
+                                            paddingHorizontal: 5,
+                                            color: '#800080',
+                                            borderBottomWidth: 0.3,
+                                            borderBottomColor: 'black'
+                                        }}>{item.title}    {item.dueDate}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 20
+                                        }}>{item.description}</Text>
+                                        <Text style={{
+                                            textAlign: 'left',
+                                            paddingHorizontal: 5,
+                                            fontSize: 12
+                                        }}></Text>
+                                    </View>}
                                 </View>
                             )
                         }}
@@ -228,7 +225,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         return (
-                                           navigation.navigate("CreateClassWork",{id})
+                                            navigation.navigate("CreateClassWork", { id })
                                         )
                                     }}
                                 >
@@ -251,7 +248,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         return (
-                                            navigation.navigate("CreateClassWork1",{id})
+                                            navigation.navigate("CreateClassWork1", { id })
                                         )
                                     }}
                                 >
@@ -274,7 +271,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         return (
-                                            navigation.navigate("CreateClassWork2",{id})
+                                            navigation.navigate("CreateClassWork2", { id })
                                         )
                                     }}
                                 >
@@ -297,7 +294,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         return (
-                                            navigation.navigate("DetailScreenForView",{id})
+                                            navigation.navigate("DetailScreenForView", { id, email })
                                         )
                                     }}
                                 >
@@ -320,7 +317,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         return (
-                                            navigation.navigate("StudentListforResult",{id})
+                                            navigation.navigate("StudentListforResult", { id })
                                         )
                                     }}
                                 >
@@ -332,7 +329,7 @@ const DetailScreenForClass = ({ navigation, route }) => {
                                     >Students Result</Text>
                                 </TouchableOpacity>
                             </View>
-                            
+
                             <TouchableOpacity onPress={() => { console.log("only for full view") }}>
                                 <View style={styles.view}></View>
                             </TouchableOpacity>
@@ -365,8 +362,8 @@ const styles = StyleSheet.create({
 
     },
     view: {
-  
-      padding: 10, height: "100%"
+
+        padding: 10, height: "100%"
     }
 });
 

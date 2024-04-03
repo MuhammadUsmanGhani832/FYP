@@ -328,10 +328,8 @@ const check_email = (dispatch) => async ({ email }) => {
   const response = await trackerApi.get(`/check/${email}`);
   console.log(response.data.user);
   if (response.data.text === "student found") {
-
     RootNavigation.navigate("Signin", { user: response.data.user });
   } else if (response.data.text === "teacher found") {
-
     RootNavigation.navigate("Teacher_Signin", { user: response.data.user });
   } else if (response.data.text === "not found") {
     dispatch({ type: "not_found", payload: "No email found. Please provide a university email" });

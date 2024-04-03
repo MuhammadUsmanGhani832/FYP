@@ -30,15 +30,11 @@ const fetchCourses = dispatch => async () => {
   }
 };
 
-// subjects    
-// subjects    
-// subjects    
-
 const fetchSubjects = dispatch => async ({ id }) => {
   try {
     const response = await trackerApi.get(`/subjects/${id}`);
     const data = response.data.reverse();
-    dispatch({ type: 'fetch_subjects', payload: response.data });
+    dispatch({ type: 'fetch_subjects', payload: data });
   } catch (error) {
     console.log(error.message)
   }

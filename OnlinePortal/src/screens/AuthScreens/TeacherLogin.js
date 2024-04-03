@@ -24,8 +24,7 @@ const TeacherLogin = ({ navigation, route }) => {
       <Spacer>
         <Text h2 h2Style={{ textAlign: "center", marginTop: 10 }}>Enter password</Text>
       </Spacer>
-      <Text style={{ marginHorizontal: 10 }}>Welcome: {user.name}</Text>
-
+      <Text style={{ marginHorizontal: 10 }}>Welcome:{user.name}</Text>
       <Spacer />
       <Input
         secureTextEntry
@@ -37,7 +36,7 @@ const TeacherLogin = ({ navigation, route }) => {
       />
       {state.errorMessage !== '' ? (
         <Text style={{ color: 'red', marginHorizontal: 10, fontSize: 10 }}>{state.errorMessage}</Text>
-      ) : null}c
+      ) : null}
       <Spacer>
         <Button
           title={"log in"}

@@ -5,24 +5,24 @@ import { Text, Button, Input } from 'react-native-elements';
 import { Context as AuthContext } from '../context/AuthContext';
 
 const ResetTeacherPassword = ({ navigation, route }) => {
-  const { state, resetPasswordTeacher,clearMessage ,resetMessage} = useContext(AuthContext);
+  const { state, resetPasswordTeacher, clearMessage, resetMessage } = useContext(AuthContext);
   const [oldPassword, setOldPassword] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
   const userId = route.params.userId;
-const callback=()=>{
+  const callback = () => {
     return (
-       setTimeout(()=>{
-         navigation.goBack()
-         clearMessage()
-       }, 3000)
+      setTimeout(() => {
+        navigation.goBack()
+        clearMessage()
+      }, 3000)
     )
-}
+  }
   const passwordCheck = () => {
     if (password === password2) {
       const newPassword = password;
-      resetPasswordTeacher({ userId, oldPassword, newPassword,callback });
+      resetPasswordTeacher({ userId, oldPassword, newPassword, callback });
     } else {
       setError('Passwords do not match');
     }
@@ -31,9 +31,8 @@ const callback=()=>{
   return (
     <>
       <Spacer>
-        {state.resetMessage!=='' ? <Text style={{ color: 'green', textAlign: 'center', marginTop: 10  }}>{state.resetMessage}</Text> : null}
+        {state.resetMessage !== '' ? <Text style={{ color: 'green', textAlign: 'center', marginTop: 10 }}>{state.resetMessage}</Text> : null}
       </Spacer>
-
       <Input
         secureTextEntry
         label="Old Password"
@@ -41,7 +40,8 @@ const callback=()=>{
         onChangeText={setOldPassword}
         autoCapitalize="none"
         autoCorrect={false}
-      />{state.errorMessage ? <Text style={{ color: 'red' }}>{state.errorMessage}</Text> : null}
+      />
+      {state.errorMessage ? <Text style={{ color: 'red' }}>{state.errorMessage}</Text> : null}
       <Input
         secureTextEntry
         label="New Password"
@@ -50,8 +50,6 @@ const callback=()=>{
         autoCapitalize="none"
         autoCorrect={false}
       />
-      
-  
       {error ? <Text style={{ color: 'red' }}>{error}</Text> : null}
       <Input
         secureTextEntry
@@ -61,7 +59,6 @@ const callback=()=>{
         autoCapitalize="none"
         autoCorrect={false}
       />
-
       <Spacer>
         <Button
           title="Submit"

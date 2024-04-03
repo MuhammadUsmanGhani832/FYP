@@ -12,7 +12,6 @@ const EnterYourEmail = ({ navigation }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-
             return () => {
                 clearErrorMessage();
             };
@@ -36,18 +35,15 @@ const EnterYourEmail = ({ navigation }) => {
                 <Text style={{ color: 'red' }}>{state.errorMessage}</Text>
             ) : null}
             <Spacer />
-
-
             <Spacer>
                 <Button
                     title={"Enter"}
                     onPress={() => check_email({ email })}
                 />
             </Spacer>
-            <Text style={{ marginLeft: 15, position: 'absolute', top: 25, right: 20 }}><TouchableOpacity onPress={() => navigation.navigate("AdminSignIn")}><Text>Admin</Text></TouchableOpacity>
+            <Text style={{ marginLeft: 15, position: 'absolute', top: 25, right: 20 }}><TouchableOpacity onPress
+                ={() => navigation.navigate("AdminSignIn")}><Text>Admin</Text></TouchableOpacity>
             </Text>
-
-
         </View>
     )
 }

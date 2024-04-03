@@ -22,29 +22,21 @@ const ClassChat = ({ navigation, route }) => {
 
 
     const course_are = myState.fetch_courses.find((t) => t._id === id);
-    //    console.log(course_id);
-    //    console.log(user_id); courseId, title, description, dueDate,
     const courseId = id;
     const callFunction = async() => {
       await  setDueDate(new Date().getHours() + ":" + new Date().getMinutes() + " (" + new Date().getUTCDate() + "/" + new Date().getMonth()+ "/" + new Date().getFullYear() + ")");
-       
         createClassWork2({ courseId, title, description, dueDate })
         fetchClassWork2({ courseId });
         setDescription("")
     }
-
     useFocusEffect(
         React.useCallback(() => {
             fetchClassWork2({ courseId });
             navigation.setOptions({
                 title: 'Chat',
-                
               });
             return () => {
                 removeFunctionChat()
-
-                // Use for cleanup functions
-
             };
         }, [])
     );
@@ -89,7 +81,7 @@ const ClassChat = ({ navigation, route }) => {
                         placeholder='Text'
                         style={{borderWidth:.5,width:'80%',height:50,fontSize:25,padding:10,borderRadius:4}}
                     />
-                    {/* navigation.navigate("CreateClassWork", { id: courseId }) } */}
+                   
                     <TouchableOpacity onPress={() => callFunction()} style={{width:50,height:50,borderRadius:50,borderWidth:1,marginLeft:10,justifyContent:'center',alignItems:'center'}}><MaterialCommunityIcons name="send" size={24} color="black" /></TouchableOpacity>
                 </View>
             </View>
