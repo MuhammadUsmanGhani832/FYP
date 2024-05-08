@@ -23,7 +23,10 @@ const classWorkRoute = require('./routes/classWorkRoute');
 const studentEmail = require('./routes/studentEmail');
 const attendence = require('./routes/attendenceRoutes');
 const event = require('./routes/eventRoute');
+const dotenv = require("dotenv");
+
 const app = express();
+dotenv.config();
 app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
@@ -35,7 +38,7 @@ app.use(subjectRoutes);
 app.use(attendence);
 app.use(event);
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://Muhammad_Usman:Saimausman832@cluster0.prpq8gx.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB', err));
 app.get("/", requireAuth, (req, res) => {
