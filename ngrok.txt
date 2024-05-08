@@ -1,2 +1,2 @@
-ngrok http --domain=9bce1e6dc7bb32-2980149167387609208.ngrok-free.app 4444
+ngrok http --domain=9bce1e6dc7bb32asdf-2980zxfdasdfas149167387609208.ngrok-free.app 4444
 
