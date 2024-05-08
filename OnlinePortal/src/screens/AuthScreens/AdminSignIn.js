@@ -11,9 +11,8 @@ const AdminSignIn = () => {
     React.useCallback(() => {
       enableBackButton();
       return () => {
-
+        clearErrorMessage();
         disableBackButton();
-        // Useful for cleanup functions
       };
     }, [])
   );

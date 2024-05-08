@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Modal, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Modal, Image, ActivityIndicator } from "react-native";
 import { Context as getEnrollCoursesContext } from '../../context/GetEnrollCoursesContext';
 import { Context as AuthContext } from '../../context/AuthContext';
 import { Context as CourseContext } from '../../context/CourseContext';
@@ -171,10 +171,11 @@ const TabHome = ({ navigation }) => {
   else {
     return (
       <>
-        <View style={{ flex: 1, marginBottom: 60 }}>
-          <View style={{ width: 300, height: 300, backgroundColor: 'red' }}>
-            <Text>indicator</Text>
-          </View>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
+          <ActivityIndicator size={35}></ActivityIndicator>
+          <Text style={{ marginTop: 10 }}>Loading...</Text>
+
         </View>
       </>
     );

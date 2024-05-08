@@ -325,16 +325,22 @@ const clearMessage = (dispatch) => async () => {
 };
 
 const check_email = (dispatch) => async ({ email }) => {
-  const response = await trackerApi.get(`/check/${email}`);
-  console.log(response.data.user);
-  if (response.data.text === "student found") {
-    RootNavigation.navigate("Signin", { user: response.data.user });
-  } else if (response.data.text === "teacher found") {
-    RootNavigation.navigate("Teacher_Signin", { user: response.data.user });
-  } else if (response.data.text === "not found") {
-    dispatch({ type: "not_found", payload: "No email found. Please provide a university email" });
-  } else {
-    dispatch({ type: "not_found", payload: "No email found. Please provide a university email" });
+  try {
+    const response = await trackerApi.get(`/check/${email}`);
+    console.log(response.data.user);
+    console.log('hit');
+    if (response.data.text === "student found") {
+      RootNavigation.navigate("Signin", { user: response.data.user });
+    } else if (response.data.text === "teacher found") {
+      RootNavigation.navigate("Teacher_Signin", { user: response.data.user });
+    } else if (response.data.text === "not found") {
+      dispatch({ type: "not_found", payload: "Please provide university email" });
+    } else {
+      dispatch({ type: "not_found", payload: "Please provide university email" });
+    }
+  } catch (error) {
+    console.log('error in check_email function', error);
+    dispatch({ type: "not_found", payload: "Internal Server Error!" });
   }
 };
 

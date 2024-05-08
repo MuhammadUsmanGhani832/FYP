@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, Platform, StatusBar } from 'react-native';
-import EmailForm from '../../components/EmailForm'
 import { Context as AuthContext } from '../../context/AuthContext'
 import { Button, Input } from 'react-native-elements';
 import Spacer from '../../components/Spacer';
@@ -32,16 +31,14 @@ const EnterYourEmail = ({ navigation }) => {
                 autoCorrect={false}
             />
             {state.errorMessage ? (
-                <Text style={{ color: 'red' }}>{state.errorMessage}</Text>
+                <Text style={{ color: 'red', marginVertical: 10, marginTop: -20 }}>{state.errorMessage}</Text>
             ) : null}
-            <Spacer />
-            <Spacer>
-                <Button
-                    title={"Enter"}
-                    onPress={() => check_email({ email })}
-                />
-            </Spacer>
-            <Text style={{ marginLeft: 15, position: 'absolute', top: 25, right: 20 }}><TouchableOpacity onPress
+            <Button
+                title={"Login"}
+                onPress={() => check_email({ email })}
+            />
+
+            <Text style={{ marginLeft: 15, position: 'absolute', top: 40, right: 20 }}><TouchableOpacity onPress
                 ={() => navigation.navigate("AdminSignIn")}><Text>Admin</Text></TouchableOpacity>
             </Text>
         </View>
@@ -49,8 +46,9 @@ const EnterYourEmail = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 30,
         flex: 1,
+        paddingHorizontal: 10
     }
 });
 
